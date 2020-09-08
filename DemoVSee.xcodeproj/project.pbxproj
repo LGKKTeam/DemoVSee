@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5CB0D02507CE5A0041F34A /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CB0CF2507CE5A0041F34A /* MasterViewModel.swift */; };
+		2E5CB0D42507D2EC0041F34A /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CB0D32507D2EC0041F34A /* ArticleViewModel.swift */; };
+		2E5CB0D62507D85D0041F34A /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CB0D52507D85D0041F34A /* RestAPIService.swift */; };
 		2E91D89C250679310046F4A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E91D89B250679310046F4A6 /* AppDelegate.swift */; };
 		2E91D89E250679310046F4A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E91D89D250679310046F4A6 /* SceneDelegate.swift */; };
 		2E91D8A3250679310046F4A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E91D8A1250679310046F4A6 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E5CB0CF2507CE5A0041F34A /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
+		2E5CB0D32507D2EC0041F34A /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		2E5CB0D52507D85D0041F34A /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
 		2E91D898250679310046F4A6 /* DemoVSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoVSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E91D89B250679310046F4A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E91D89D250679310046F4A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 		2EC51BC425077ABC00AE4345 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2E5CB0CF2507CE5A0041F34A /* MasterViewModel.swift */,
+				2E5CB0D32507D2EC0041F34A /* ArticleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC51BC625077EF200AE4345 /* Storage.swift */,
+				2E5CB0D52507D85D0041F34A /* RestAPIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -357,6 +366,9 @@
 				2E91D8DA250682650046F4A6 /* Article.swift in Sources */,
 				2E91D8DC2506829E0046F4A6 /* Source.swift in Sources */,
 				2E91D89C250679310046F4A6 /* AppDelegate.swift in Sources */,
+				2E5CB0D42507D2EC0041F34A /* ArticleViewModel.swift in Sources */,
+				2E5CB0D02507CE5A0041F34A /* MasterViewModel.swift in Sources */,
+				2E5CB0D62507D85D0041F34A /* RestAPIService.swift in Sources */,
 				2E91D8D8250682180046F4A6 /* NewsResponseModel.swift in Sources */,
 				2E9C0E112506895F0076AAD9 /* UIImage+Extension.swift in Sources */,
 				2E91D89E250679310046F4A6 /* SceneDelegate.swift in Sources */,

@@ -8,13 +8,14 @@
 import UIKit
 
 extension UIImageView {
-  func load(url: URL, placeholder: UIImage? = nil, cache: URLCache? = nil) {
+  func load(url: URL, placeholder: UIImage? = nil, cache: URLCache? = nil, completion: ((Bool)->Void)? = nil) {
     let cache = cache ?? URLCache.shared
     let request = URLRequest(url: url)
     if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
       DispatchQueue.main.async { [weak self] in
         guard let strongSelf = self else { return }
         strongSelf.image = image
+        completion?(true)
       }
     } else {
       self.image = placeholder
@@ -25,7 +26,10 @@ extension UIImageView {
           cache.storeCachedResponse(cachedData, for: request)
           DispatchQueue.main.async {
             strongSelf.image = image
+            completion?(true)
           }
+        } else {
+          completion?(false)
         }
       }).resume()
     }

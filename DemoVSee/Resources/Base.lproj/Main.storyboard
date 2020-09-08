@@ -99,16 +99,16 @@
                                             </subviews>
                                         </stackView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Qov-uT-gcl">
-                                            <rect key="frame" x="384" y="10" width="20" height="20"/>
+                                            <rect key="frame" x="32" y="32" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Qov-uT-gcl" firstAttribute="top" secondItem="QXv-0v-VN5" secondAttribute="top" constant="10" id="8VI-ad-83h"/>
+                                        <constraint firstItem="Qov-uT-gcl" firstAttribute="centerX" secondItem="Ntn-ra-yZt" secondAttribute="centerX" id="6bA-w2-gtj"/>
                                         <constraint firstItem="Ntn-ra-yZt" firstAttribute="top" secondItem="QXv-0v-VN5" secondAttribute="top" constant="10" id="CbL-ix-JwH"/>
                                         <constraint firstItem="Ntn-ra-yZt" firstAttribute="leading" secondItem="QXv-0v-VN5" secondAttribute="leading" constant="10" id="HU7-cs-WAf"/>
-                                        <constraint firstAttribute="trailing" secondItem="Qov-uT-gcl" secondAttribute="trailing" constant="10" id="HrW-3A-gYY"/>
                                         <constraint firstAttribute="trailing" secondItem="fxw-tw-1c7" secondAttribute="trailing" constant="10" id="OdP-Zy-2uI"/>
                                         <constraint firstAttribute="bottom" secondItem="fxw-tw-1c7" secondAttribute="bottom" constant="10" id="QbO-MY-bHS"/>
+                                        <constraint firstItem="Qov-uT-gcl" firstAttribute="centerY" secondItem="Ntn-ra-yZt" secondAttribute="centerY" id="Wj4-aA-iaW"/>
                                         <constraint firstItem="fxw-tw-1c7" firstAttribute="top" secondItem="QXv-0v-VN5" secondAttribute="top" constant="10" id="ZyX-Nn-HSx"/>
                                         <constraint firstItem="fxw-tw-1c7" firstAttribute="leading" secondItem="Ntn-ra-yZt" secondAttribute="trailing" constant="10" id="bOO-Eh-7Eq"/>
                                     </constraints>

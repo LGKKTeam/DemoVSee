@@ -41,19 +41,16 @@ class NewsTableViewCell: UITableViewCell {
     }
   }
   
-  func fillData(_ article: Article) {
-    titleLabel.text = article.title;
-    descLabel.text = article.articleDescription
-    if let date = article.publishedAt {
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateStyle = .full
-      timestampLabel.text = dateFormatter.string(from: date)
-    } else {
-      timestampLabel.text = ""
-    }
-    
-    if let urlString = article.urlToImage, let url = URL(string: urlString) {
-      articleImageView.load(url: url)
+  func configWithViewModel(_ viewModel: ArticleViewModel) {
+    titleLabel.text = viewModel.titleString
+    descLabel.text = viewModel.desctiptionString
+    timestampLabel.text = viewModel.timeStampString
+    if let url = URL(string: viewModel.imageURLString) {
+      setLoading(true)
+      articleImageView.load(url: url) { [weak self] (_) in
+        guard let strongSelf = self else { return }
+        strongSelf.setLoading(false)
+      }
     }
     
     setNeedsLayout()
