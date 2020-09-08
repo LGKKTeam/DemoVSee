@@ -127,17 +127,17 @@
 		2E91D89A250679310046F4A6 /* DemoVSee */ = {
 			isa = PBXGroup;
 			children = (
+				2E91D89B250679310046F4A6 /* AppDelegate.swift */,
+				2E91D8A4250679320046F4A6 /* Assets.xcassets */,
+				2E9C0E0F2506894E0076AAD9 /* Helper */,
+				2E91D8A9250679320046F4A6 /* Info.plist */,
+				2E91D8A6250679320046F4A6 /* LaunchScreen.storyboard */,
+				2E91D8DF250683410046F4A6 /* Models */,
+				2E91D8E2250683970046F4A6 /* Resources */,
+				2E91D89D250679310046F4A6 /* SceneDelegate.swift */,
 				2EC51BC525077EE600AE4345 /* Services */,
 				2EC51BC425077ABC00AE4345 /* ViewModels */,
-				2E9C0E0F2506894E0076AAD9 /* Helper */,
-				2E91D8E2250683970046F4A6 /* Resources */,
 				2E91D8E0250683640046F4A6 /* Views */,
-				2E91D8DF250683410046F4A6 /* Models */,
-				2E91D89B250679310046F4A6 /* AppDelegate.swift */,
-				2E91D89D250679310046F4A6 /* SceneDelegate.swift */,
-				2E91D8A4250679320046F4A6 /* Assets.xcassets */,
-				2E91D8A6250679320046F4A6 /* LaunchScreen.storyboard */,
-				2E91D8A9250679320046F4A6 /* Info.plist */,
 			);
 			path = DemoVSee;
 			sourceTree = "<group>";
@@ -163,10 +163,10 @@
 		2E91D8DF250683410046F4A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2E91D8D7250682180046F4A6 /* NewsResponseModel.swift */,
-				2E91D8DD250682D20046F4A6 /* JSONSchemaSupport.swift */,
-				2E91D8DB2506829E0046F4A6 /* Source.swift */,
 				2E91D8D9250682650046F4A6 /* Article.swift */,
+				2E91D8DD250682D20046F4A6 /* JSONSchemaSupport.swift */,
+				2E91D8D7250682180046F4A6 /* NewsResponseModel.swift */,
+				2E91D8DB2506829E0046F4A6 /* Source.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,9 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				2E91D8E1250683830046F4A6 /* Cells */,
-				2E91D8CB25067A7B0046F4A6 /* MasterViewController.swift */,
 				2E91D8CF25067A930046F4A6 /* DetailViewController.swift */,
 				2E9C0E122506F92A0076AAD9 /* MasterDetailViewController.swift */,
+				2E91D8CB25067A7B0046F4A6 /* MasterViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 		2E9C0E0F2506894E0076AAD9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2EC51BC8250784A800AE4345 /* Reachability.swift */,
 				2E9C0E102506895F0076AAD9 /* UIImage+Extension.swift */,
 				2EC51BC22507602700AE4345 /* UIViewController+Extension.swift */,
-				2EC51BC8250784A800AE4345 /* Reachability.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -211,8 +211,8 @@
 		2EC51BC425077ABC00AE4345 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2E5CB0CF2507CE5A0041F34A /* MasterViewModel.swift */,
 				2E5CB0D32507D2EC0041F34A /* ArticleViewModel.swift */,
+				2E5CB0CF2507CE5A0041F34A /* MasterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 		2EC51BC525077EE600AE4345 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2EC51BC625077EF200AE4345 /* Storage.swift */,
 				2E5CB0D52507D85D0041F34A /* RestAPIService.swift */,
+				2EC51BC625077EF200AE4345 /* Storage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
