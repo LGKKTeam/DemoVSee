@@ -10,6 +10,7 @@ import Foundation
 
 /// Register new APIs key from https://newsapi.org/bbc-sport-api
 let apiKeyTest = "c592c045cbf442ba9411ef7dbbbbcae4"
+let kStoreFileName = "DemoVSeeStore"
 
 protocol MasterSelectionDelegate: class {
   func articleSelected(_ article: Article, at index: Int, completion: ((Bool) -> Void)?)
@@ -43,9 +44,41 @@ class MasterViewController: UITableViewController {
     tableView.rowHeight = UITableView.automaticDimension
     indicatorView.hidesWhenStopped = true
     indicatorView.startAnimating()
+    setupPullToRefreshControl()
     
-    let q = "bitcoin"
-    getNews(by: q)
+    getLocalStore()
+    getNews(by: "bitcoin")
+  }
+  
+  func setupPullToRefreshControl() {
+    let refreshControl = UIRefreshControl()
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+    self.refreshControl = refreshControl
+  }
+  
+  @objc func refresh(_ sender: AnyObject) {
+    getNews(by: "bitcoin")
+  }
+  
+  func getLocalStore() {
+    let localData = Storage.retrieve(kStoreFileName, from: Storage.Directory.documents, as: NewsResponseModel.self)
+    updateUIData(localData)
+  }
+  
+  func updateUIData(_ newsResponseModel: NewsResponseModel?, error: Error? = nil) {
+    if (error != nil) {
+      print(error as Any)
+    } else {
+      self.newsResponseModel = newsResponseModel
+      self.tableView.reloadData()
+      if let article = newsResponseModel?.articles?.first {
+        self.delegate?.articleSelected(article, at: 0, completion: nil)
+      }
+    }
+    self.indicatorView.stopAnimating()
+    self.tableView.tableHeaderView = UIView()
+    self.refreshControl?.endRefreshing()
   }
   
   func getNews(by searchTerm: String) {
@@ -57,17 +90,7 @@ class MasterViewController: UITableViewController {
     let task = URLSession.shared.newsResponseModelTask(with: _url) { [weak self] newsResponseModel, response, error in
       DispatchQueue.main.async {
         guard let strongSelf = self else { return }
-        if (error != nil) {
-          print(error as Any)
-        } else {
-          strongSelf.newsResponseModel = newsResponseModel
-          strongSelf.tableView.reloadData()
-          if let article = newsResponseModel?.articles?.first {
-            strongSelf.delegate?.articleSelected(article, at: 0, completion: nil)
-          }
-        }
-        strongSelf.indicatorView.stopAnimating()
-        strongSelf.tableView.tableHeaderView = UIView()
+        strongSelf.updateUIData(newsResponseModel, error: error)
       }
     }
     task.resume()

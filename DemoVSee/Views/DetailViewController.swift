@@ -8,6 +8,9 @@
 import UIKit
 import WebKit
 
+/// Currently I'll let this sample like this. Only cache news feed page
+/// TODO: Cached content url using WebArchiver & Fuzi libs
+
 // MARK: DetailViewController
 
 class DetailViewController: UIViewController {

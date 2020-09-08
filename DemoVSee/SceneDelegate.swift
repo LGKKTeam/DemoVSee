@@ -10,13 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
-
+  var reachability: Reachability?
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let _ = (scene as? UIWindowScene) else { return }
+    startReachability()
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +51,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+  func startReachability() {
+    //declare this property where it won't go out of scope relative to your listener
+    reachability = try! Reachability()
+    //declare this inside of viewWillAppear
+    NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+    do{
+      try reachability?.startNotifier()
+    } catch {
+      print("could not start reachability notifier")
+    }
+  }
+  
+  @objc func reachabilityChanged(note: Notification) {
+    let reachability = note.object as! Reachability
+    switch reachability.connection {
+      case .wifi:
+        print("Reachable via WiFi")
+      case .cellular:
+        print("Reachable via Cellular")
+      case .unavailable, .none:
+        print("Network not reachable")
+        window?.rootViewController?.showToast(message: "Network not reachable", font: UIFont.systemFont(ofSize: 12))
+    }
+  }
+}
